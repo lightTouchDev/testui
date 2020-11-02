@@ -27,9 +27,11 @@ class EmployeeListComponent extends Component {
     editEmployee(id){
         this.props.history.push(`/update-employee/${id}`)
     }
+
     deleteEmployee(id){
-        EmployeeService.deleteEmployee(id)
-        this.props.history.push("/employees")
+        EmployeeService.deleteEmployee(id).then( res =>{
+            this.setState({employees: this.state.employees.filter( employee => employee.id !== id)})
+        });
     }
 
     render() {

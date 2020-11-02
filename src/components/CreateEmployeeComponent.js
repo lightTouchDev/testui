@@ -17,21 +17,21 @@ class CreateEmployeeComponent extends Component {
 
         this.saveEmployee = this.saveEmployee.bind(this)
     }
-    // componentDidMount(){
+    componentDidMount(){
         
-    //     if(this.state.id){
-    //         EmployeeService.getEmployeeById(this.state.id).then((res) => {
-    //             let employee = res.data;
-    //             this.setState({
-    //                 fName: employee.fName,
-    //                 lName: employee.lName,
-    //                 email: employee.email
-    //             })
-    //         })
-    //     }else{
-    //         return
-    //     }
-    // }
+        if(this.state.id){
+            EmployeeService.getEmployeeById(this.state.id).then((res) => {
+                let employee = res.data;
+                this.setState({
+                    fName: employee.fName,
+                    lName: employee.lName,
+                    email: employee.email
+                })
+            })
+        }else{
+            return
+        }
+    }
 
 
     changeFirstNameHandler= (event) => {
